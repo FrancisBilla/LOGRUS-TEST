@@ -2,10 +2,10 @@
 
 
 // import (
-	
+
 //     "os"
 // 	// "log"
-	
+
 // 	log "github.com/sirupsen/logrus"
 // )
 
@@ -41,7 +41,7 @@ package main
 
 import (
     "os"
-    "fmt"
+    // "fmt"
     log "github.com/sirupsen/logrus"
     // "LOGRUS-TEST/middlewares"
 )
@@ -51,7 +51,8 @@ func init() {
     // open a file
     f, err := os.OpenFile("testlogrus.log", os.O_APPEND | os.O_CREATE | os.O_RDWR, 0666)
     if err != nil {
-        fmt.Printf("error opening file: %v", err)
+        log.Fatal("error opening file: %v", err)
+        // fmt.Printf("error opening file: %v", err)
     }
 
     // don't forget to close it
@@ -73,9 +74,9 @@ func init() {
 
 func main() {
 
-    // log.WithFields(log.Fields{
-    //     "Animal": "Logrus",
-    // }).Info("A logrus appears")
+    log.WithFields(log.Fields{
+        "Animal": "Logrus",
+    }).Info("A logrus appears")
 
 
 }
